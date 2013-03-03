@@ -181,6 +181,19 @@ on your system to invoke it.
 To write JavaScript assets with CoffeeScript, use the extension
 `.js.coffee`.
 
+## Scripting with PogoScript ##
+
+[PogoScript](http://pogoscript.org) is a programming language that emphasises readability, is friendly to domain specific languages and compiles to regular Javascript.
+
+If the `pogo-script` gem is available to your application, you can
+use PogoScript to write JavaScript assets in Sprockets. Note that
+the PogoScript compiler is written in JavaScript, and you will need
+an [ExecJS](https://github.com/sstephenson/execjs)-supported runtime
+on your system to invoke it.
+
+To write JavaScript assets with PogoScript, use the extension
+`.js.pogo`.
+
 ## JavaScript Templating with EJS and Eco ##
 
 Sprockets supports *JavaScript templates* for client-side rendering of

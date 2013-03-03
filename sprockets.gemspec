@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "closure-compiler"
   s.add_development_dependency "coffee-script", "~> 2.0"
   s.add_development_dependency "coffee-script-source", "~> 1.2.0"
+  s.add_development_dependency "pogo-script", "~> 0.0.2"
+  s.add_development_dependency "pogo-script-source", "~> 0.3.1"
   s.add_development_dependency "eco", "~> 1.0"
   s.add_development_dependency "ejs", "~> 1.0"
   s.add_development_dependency "execjs", "~> 1.0"

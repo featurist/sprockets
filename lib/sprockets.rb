@@ -91,6 +91,9 @@ module Sprockets
 
   # Mmm, CoffeeScript
   register_engine '.coffee', Tilt::CoffeeScriptTemplate
+  
+  # Mmm, PogoScript
+  register_engine '.pogo', Tilt::PogoScriptTemplate
 
   # JST engines
   register_engine '.jst',    JstProcessor

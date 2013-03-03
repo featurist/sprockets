@@ -21,6 +21,7 @@ class TestAssetAttributes < Sprockets::TestCase
 
     assert_equal "application.js", pathname(fixture_path("default/application.js.erb")).logical_path
     assert_equal "application.js", pathname(fixture_path("default/application.js.coffee")).logical_path
+    assert_equal "application.js", pathname(fixture_path("default/application.js.pogo")).logical_path
     assert_equal "application.css", pathname(fixture_path("default/application.css.scss")).logical_path
 
     assert_equal "application.js", pathname(fixture_path("default/application.coffee")).logical_path
@@ -46,6 +47,8 @@ class TestAssetAttributes < Sprockets::TestCase
     assert_equal ".js", pathname("gallery.js").format_extension
     assert_equal ".js", pathname("application.js.coffee").format_extension
     assert_equal ".js", pathname("project.js.coffee.erb").format_extension
+    assert_equal ".js", pathname("application.js.pogo").format_extension
+    assert_equal ".js", pathname("project.js.pogo.erb").format_extension
     assert_equal ".css", pathname("gallery.css.erb").format_extension
     assert_equal nil, pathname("gallery.erb").format_extension
     assert_equal nil, pathname("gallery.foo").format_extension
@@ -66,6 +69,8 @@ class TestAssetAttributes < Sprockets::TestCase
     assert_equal [], pathname("gallery.js").engine_extensions
     assert_equal [".coffee"], pathname("application.js.coffee").engine_extensions
     assert_equal [".coffee", ".erb"], pathname("project.js.coffee.erb").engine_extensions
+    assert_equal [".pogo"], pathname("application.js.pogo").engine_extensions
+    assert_equal [".pogo", ".erb"], pathname("project.js.pogo.erb").engine_extensions
     assert_equal [".erb"], pathname("gallery.css.erb").engine_extensions
     assert_equal [".erb"], pathname("gallery.erb").engine_extensions
     assert_equal [], pathname("jquery.js").engine_extensions
@@ -76,6 +81,7 @@ class TestAssetAttributes < Sprockets::TestCase
     assert_equal [".coffee"], pathname("jquery.min.coffee").engine_extensions
     assert_equal [".erb"], pathname("jquery.csv.min.js.erb").engine_extensions
     assert_equal [".coffee", ".erb"], pathname("jquery.csv.min.js.coffee.erb").engine_extensions
+    assert_equal [".pogo", ".erb"], pathname("jquery.csv.min.js.pogo.erb").engine_extensions
 
     env = Sprockets::Environment.new
     env.register_engine '.ms', Class.new
@@ -91,6 +97,10 @@ class TestAssetAttributes < Sprockets::TestCase
       pathname("application.js.coffee").content_type
     assert_equal "application/javascript",
       pathname("project.js.coffee.erb").content_type
+    assert_equal "application/javascript",
+      pathname("application.js.pogo").content_type
+    assert_equal "application/javascript",
+      pathname("project.js.pogo.erb").content_type
     assert_equal "text/css",
       pathname("gallery.css.erb").content_type
     assert_equal "application/javascript",
